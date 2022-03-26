@@ -1,0 +1,698 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IKVM.AWT.WinForms</name>
+    </assembly>
+    <members>
+        <member name="M:ikvm.awt.CompositeHelper.#ctor">
+            <summary>
+            Create a default CompositeHelper. Is used from Create only.
+            </summary>
+        </member>
+        <member name="M:ikvm.awt.CompositeHelper.GetImageAttributes">
+            <summary>
+            Get the ImageAttributes instance. Does not change it bcause it is not a copy.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ikvm.awt.AlphaCompositeHelper.#ctor(System.Single)">
+            <summary>
+            Create a AlphaCompositeHelper
+            </summary>
+            <param name="alpha">a value in the range from 0.0 to 1.0</param>
+        </member>
+        <member name="T:ikvm.awt.J2C">
+            <summary>
+            This class has some static convertion methods from Java to C# objects
+            </summary>
+        </member>
+        <member name="M:ikvm.awt.J2C.ConvertRoundRect(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Create a rounded rectangle using lines and arcs
+            </summary>
+            <param name="x">upper left x coordinate</param>
+            <param name="y">upper left y coordinate</param>
+            <param name="w">width</param>
+            <param name="h">height</param>
+            <param name="arcWidth">the horizontal diameter of the arc at the four corners</param>
+            <param name="arcHeight">the vertical diameter of the arc at the four corners</param>
+            <returns></returns>
+        </member>
+        <member name="T:ikvm.awt.C2J">
+            <summary>
+            This class has some static convertion function from C# to Java objects
+            </summary>
+        </member>
+        <member name="M:ikvm.awt.PrintGraphics.checkState">
+            <summary>
+            Checks whether the properties of this instance are set to the bse Graphics. If not, the context
+            of the currently PrintGraphics is saved and the context if this instance is restored.
+            </summary>
+        </member>
+        <member name="T:ikvm.awt.NetGraphicsState">
+            <summary>
+            State to store/restore the state of a NetGraphics/Graphics object
+            </summary>
+        </member>
+        <member name="P:ikvm.awt.NetGraphics.g">
+            <summary>
+            The current C# Graphics
+            </summary>
+        </member>
+        <member name="M:ikvm.awt.NetGraphics.GetSize">
+            <summary>
+            Get the size of the graphics. This is used as a hind for some hacks.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ikvm.awt.NetGraphics.drawPolyline(System.Int32[],System.Int32[],System.Int32)">
+            <summary>
+            Draw a sequence of connected lines
+            </summary>
+            <param name="aX">Array of x coordinates</param>
+            <param name="aY">Array of y coordinates</param>
+            <param name="aLength">Length of coordinate arrays</param>
+        </member>
+        <member name="M:ikvm.awt.NetGraphics.drawRoundRect(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Apparently there is no rounded rec function in .Net. Draw the
+            rounded rectangle by using lines and arcs.
+            </summary>
+        </member>
+        <member name="M:ikvm.awt.NetGraphics.getBaseline(System.Drawing.Font,System.Drawing.Text.TextRenderingHint)">
+            <summary>
+            Caclulate the baseline from a font and a TextRenderingHint
+            </summary>
+            <param name="font">the font</param>
+            <param name="hint">the used TextRenderingHint</param>
+            <returns></returns>
+        </member>
+        <member name="T:ikvm.awt.IconFactory">
+            <summary>
+            Encodes images in ICO format.
+            </summary>
+        </member>
+        <member name="F:ikvm.awt.IconFactory.TYPE_ICON">
+            <summary>
+            Indicates that ICO data represents an icon (.ICO).
+            </summary>
+        </member>
+        <member name="M:ikvm.awt.IconFactory.#ctor">
+            <summary>
+            Creates a new instance of IconFactory </summary>
+        </member>
+        <member name="M:ikvm.awt.IconFactory.CreateIcon(java.util.List,System.Drawing.Size)">
+            <summary>
+            Create a Icon from the given list of images
+            </summary>
+            <param name="images">list of images</param>
+            <returns></returns>
+        </member>
+        <member name="M:ikvm.awt.IconFactory.Write(java.util.List,System.IO.Stream)">
+            <summary>
+            Encodes and writes multiple images without colour depth conversion.
+            </summary>
+            <param name="images">
+                       the list of source images to be encoded </param>
+            <param name="stream">
+                       the output to which the encoded image will be written </param>
+        </member>
+        <member name="M:ikvm.awt.IconFactory.WriteFileHeader(System.Int32,System.Int32)">
+            <summary>
+            Writes the ICO file header for an ICO containing the given number of
+            images.
+            </summary>
+            <param name="count">
+                       the number of images in the ICO </param>
+            <param name="type">
+                       TYPE_ICON </param>
+        </member>
+        <member name="M:ikvm.awt.IconFactory.WriteAndBitmap(java.awt.image.BufferedImage)">
+            <summary>
+            Encodes the <em>AND</em> bitmap for the given image according the its
+            alpha channel (transparency) and writes it to the given output.
+            </summary>
+            <param name="img">
+                       the image to encode as the <em>AND</em> bitmap. </param>
+        </member>
+        <member name="M:ikvm.awt.IconFactory.WriteInfoHeader(java.awt.image.BufferedImage)">
+            <summary>
+            Writes the <tt>InfoHeader</tt> structure to output
+            
+            </summary>
+        </member>
+        <member name="M:ikvm.awt.IconFactory.WriteIconEntry(java.awt.image.BufferedImage,System.Int32)">
+            <summary>
+            Writes the <tt>IconEntry</tt> structure to output
+            </summary>
+        </member>
+        <member name="M:ikvm.awt.IconFactory.WriteColorMap(java.awt.image.IndexColorModel)">
+            <summary>
+            Writes the colour map resulting from the source <tt>IndexColorModel</tt>.
+            </summary>
+            <param name="icm">
+                       the source <tt>IndexColorModel</tt> </param>
+        </member>
+        <member name="M:ikvm.awt.IconFactory.GetBytesPerLine1(System.Int32)">
+            <summary>
+            Calculates the number of bytes per line required for the given width in
+            pixels, for a 1-bit bitmap. Lines are always padded to the next 4-byte
+            boundary.
+            </summary>
+            <param name="width">
+                       the width in pixels </param>
+            <returns> the number of bytes per line </returns>
+        </member>
+        <member name="M:ikvm.awt.IconFactory.GetBytesPerLine4(System.Int32)">
+            <summary>
+            Calculates the number of bytes per line required for the given with in
+            pixels, for a 4-bit bitmap. Lines are always padded to the next 4-byte
+            boundary.
+            </summary>
+            <param name="width">
+                       the width in pixels </param>
+            <returns> the number of bytes per line </returns>
+        </member>
+        <member name="M:ikvm.awt.IconFactory.GetBytesPerLine8(System.Int32)">
+            <summary>
+            Calculates the number of bytes per line required for the given with in
+            pixels, for a 8-bit bitmap. Lines are always padded to the next 4-byte
+            boundary.
+            </summary>
+            <param name="width">
+                       the width in pixels </param>
+            <returns> the number of bytes per line </returns>
+        </member>
+        <member name="M:ikvm.awt.IconFactory.GetBytesPerLine24(System.Int32)">
+            <summary>
+            Calculates the number of bytes per line required for the given with in
+            pixels, for a 24-bit bitmap. Lines are always padded to the next 4-byte
+            boundary.
+            </summary>
+            <param name="width">
+                       the width in pixels </param>
+            <returns> the number of bytes per line </returns>
+        </member>
+        <member name="M:ikvm.awt.IconFactory.GetBitmapSize(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Calculates the size in bytes of a bitmap with the specified size and
+            colour depth.
+            </summary>
+            <param name="w">
+                       the width in pixels </param>
+            <param name="h">
+                       the height in pixels </param>
+            <param name="bpp">
+                       the colour depth (bits per pixel) </param>
+            <returns> the size of the bitmap in bytes </returns>
+        </member>
+        <member name="M:ikvm.awt.IconFactory.Write1(java.awt.image.Raster)">
+            <summary>
+            Encodes and writes raster data as a 1-bit bitmap.
+            </summary>
+            <param name="raster">
+                       the source raster data </param>
+        </member>
+        <member name="M:ikvm.awt.IconFactory.Write4(java.awt.image.Raster)">
+            <summary>
+            Encodes and writes raster data as a 4-bit bitmap.
+            </summary>
+            <param name="raster">
+                       the source raster data </param>
+        </member>
+        <member name="M:ikvm.awt.IconFactory.Write8(java.awt.image.Raster)">
+            <summary>
+            Encodes and writes raster data as an 8-bit bitmap.
+            </summary>
+            <param name="raster">
+                       the source raster data </param>
+        </member>
+        <member name="M:ikvm.awt.IconFactory.Write24(java.awt.image.Raster)">
+            <summary>
+            Encodes and writes raster data as a 24-bit bitmap.
+            </summary>
+            <param name="raster">
+                       the source raster data </param>
+        </member>
+        <member name="M:ikvm.awt.IconFactory.Write32(java.awt.image.Raster,java.awt.image.Raster)">
+            <summary>
+            Encodes and writes raster data, together with alpha (transparency) data,
+            as a 32-bit bitmap.
+            </summary>
+            <param name="raster">
+                       the source raster data </param>
+            <param name="alpha">
+                       the source alpha data </param>
+        </member>
+        <member name="M:ikvm.awt.IconFactory.SetBit(System.Byte,System.Int32,System.Int32)">
+            <summary>
+            Sets a particular bit in a byte.
+            </summary>
+            <param name="bits">
+                       the source byte </param>
+            <param name="index">
+                       the index of the bit to set </param>
+            <param name="bit">
+                       the value for the bit, which should be either <tt>0</tt> or
+                       <tt>1</tt>. </param>
+            <returns>resultant byte</returns>
+        </member>
+        <member name="M:ikvm.awt.IconFactory.SetNibble(System.Byte,System.Int32,System.Int32)">
+            <summary>
+            Sets a particular nibble (4 bits) in a byte.
+            </summary>
+            <param name="nibbles">
+                       the source byte </param>
+            <param name="index">
+                       the index of the nibble to set </param>
+            <param name="nibble">
+                       value for the nibble, which should be in the range
+                       <tt>0x0..0xF</tt>. </param>
+        </member>
+        <member name="M:ikvm.awt.IconFactory.GetColorMapSize(System.Int16)">
+            <summary>
+            Calculates the size in bytes for a colour map with the specified bit
+            count.
+            </summary>
+            <param name="sBitCount">
+                       the bit count, which represents the colour depth </param>
+            <returns> the size of the colour map, in bytes if <tt>sBitCount</tt> is
+                    less than or equal to 8, otherwise <tt>0</tt> as colour maps are
+                    only used for bitmaps with a colour depth of 8 bits or less. </returns>
+        </member>
+        <member name="T:ikvm.awt.printing.BasePrintPeer">
+            <summary>
+            Base Implementation of the PrintPeer
+            </summary>
+        </member>
+        <member name="T:ikvm.awt.printing.LinuxPrintPeer">
+            <summary>
+            Implementation of the PrintPeer for Linux
+            </summary>
+        </member>
+        <member name="T:ikvm.awt.printing.Win32PrintPeer">
+            <summary>
+            Implementation of the PrintPeer for Windows
+            </summary>
+        </member>
+        <member name="M:ikvm.awt.printing.Win32PrintPeer.getPrinterStatus(System.String,java.lang.Class)">
+            <summary>
+            Get a printer status
+            </summary>
+            <param name="printerName">a valid printer name</param>
+            <param name="category">a category that should request</param>
+            <returns>a printer attribute or null</returns>
+        </member>
+        <member name="M:ikvm.awt.printing.Win32PrintPeer.GetPrinterInfo2(System.String,System.Int32@,System.Int32@)">
+            <summary>
+            Get infos from the PRINTER_INFO_2 struc
+            </summary>
+            <param name="printerName">The name of a valid printer</param>
+            <param name="cJobs">returns the current count of print jobs</param>
+            <param name="status">returns the current status of the printer</param>
+            <returns>true if the return is valid</returns>
+        </member>
+        <member name="F:ikvm.awt.MyForm.maxBounds">
+            <summary>
+            Original MaximizedBounds
+            </summary>
+        </member>
+        <member name="M:ikvm.awt.MyForm.#ctor(java.awt.Insets)">
+            <summary>
+            Creates the native form
+            </summary>
+            <param name="peerInsets">the insets instance of the peer instance</param>
+        </member>
+        <member name="M:ikvm.awt.NetToolkit.isWin32">
+            <summary>
+            Run on a win 32 system
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ikvm.awt.NetToolkit.getPrintPeer">
+            <summary>
+            Get a helper class for implementing the print API
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ikvm.awt.NetToolkit.outline(java.awt.Font,java.awt.font.FontRenderContext,System.String,System.Single,System.Single)">
+            <summary>
+            Create a outline from the given text and font parameter
+            </summary>
+            <param name="javaFont">the font</param>
+            <param name="frc">font render context</param>
+            <param name="text">the text</param>
+            <param name="x">x - position</param>
+            <param name="y">y - position</param>
+            <returns></returns>
+        </member>
+        <member name="M:ikvm.awt.NetComponentPeer`2.getInsetsLeft">
+            <summary>
+            Get the left insets of the .NET Window.
+            In .NET the coordinate of a window start on the most left, top point with 0,0
+            In Java the most left, top point with 0,0 is in the detail area of the window.
+            In all not Windows Component this return ever 0.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ikvm.awt.NetComponentPeer`2.getInsetsTop">
+            <summary>
+            Get the top insets of the .NET Window.
+            In .NET the coordinate of a window start on the most left, top point with 0,0
+            In Java the most left, top point with 0,0 is in the detail area of the window.
+            In all not Windows Component this return ever 0.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ikvm.awt.NetComponentPeer`2.getParentOffset">
+            <summary>
+            .NET calculates the offset relative to the detail area.
+            Java uses the top left point of a window.
+            That means we must compensate the coordinate of a component
+            if the parent is a window, frame or dialog.
+            </summary>
+            <returns>The offset of the details area in the parent</returns>
+        </member>
+        <member name="M:ikvm.awt.NetComponentPeer`2.requestFocus(java.awt.Component,System.Boolean,System.Boolean,System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="request">the component for which the focus is requested</param>
+            <param name="temporary">indicates if the focus change is temporary (true) or permanent (false)</param>
+            <param name="allowWindowFocus">indicates if it's allowed to change window focus</param>
+            <param name="time">the timestamp</param>
+            <returns></returns>
+        </member>
+        <member name="M:ikvm.awt.NetComponentPeer`2.flip(System.Int32,System.Int32,System.Int32,System.Int32,java.awt.BufferCapabilities.FlipContents)">
+             Move the back buffer to the front buffer.
+            
+             @param x1 the area to be flipped, upper left X coordinate
+             @param y1 the area to be flipped, upper left Y coordinate
+             @param x2 the area to be flipped, lower right X coordinate
+             @param y2 the area to be flipped, lower right Y coordinate
+             @param flipAction the flip action to perform
+            
+             @see Component.FlipBufferStrategy#flip
+        </member>
+        <member name="M:ikvm.awt.NetComponentPeer`2.setZOrder(java.awt.peer.ComponentPeer)">
+            Lowers this component at the bottom of the above HW peer. If the above parameter
+            is null then the method places this component at the top of the Z-order.
+        </member>
+        <member name="M:ikvm.awt.NetComponentPeer`2.updateGraphicsData(java.awt.GraphicsConfiguration)">
+             Updates internal data structures related to the component's GC.
+            
+             @return if the peer needs to be recreated for the changes to take effect
+             @since 1.7
+        </member>
+        <member name="F:ikvm.awt.NetContainerPeer`2._insets">
+            <summary>
+            The native insets of the .NET Window
+            </summary>
+        </member>
+        <member name="M:ikvm.awt.NetCanvasPeer.getAppropriateGraphicsConfiguration(java.awt.GraphicsConfiguration)">
+             Requests a GC that best suits this Canvas. The returned GC may differ
+             from the requested GC passed as the argument to this method. This method
+             must return a non-null value (given the argument is non-null as well).
+            
+             @since 1.7
+        </member>
+        <member name="M:ikvm.awt.NetWindowPeer.setFormBorderStyle(System.Windows.Forms.FormBorderStyle)">
+            <summary>
+            Set the border style of the window and recalc the insets
+            </summary>
+            <param name="style">the new style</param>
+        </member>
+        <member name="M:ikvm.awt.NetWindowPeer.setOpacity(System.Single)">
+             Sets the level of opacity for the window.
+            
+             @see Window#setOpacity(float)
+        </member>
+        <member name="M:ikvm.awt.NetWindowPeer.setOpaque(System.Boolean)">
+             Enables the per-pixel alpha support for the window.
+            
+             @see Window#setBackground(Color)
+        </member>
+        <member name="M:ikvm.awt.NetWindowPeer.updateWindow">
+             Updates the native part of non-opaque window.
+            
+             @see Window#setBackground(Color)
+        </member>
+        <member name="M:ikvm.awt.NetWindowPeer.repositionSecurityWarning">
+            Instructs the peer to update the position of the security warning.
+        </member>
+        <member name="T:IKVM.NativeCode.sun.awt.shell.Win32ShellFolder2">
+            <summary>
+            This class should use only on Windows that we can access shell32.dll
+            </summary>
+        </member>
+        <member name="M:IKVM.NativeCode.sun.awt.shell.Win32ShellFolder2.getExecutableType(System.String)">
+            <summary>
+            Get the program to execute or open the file. If it is a exe then it is self
+            </summary>
+            <param name="path">path to the file</param>
+            <returns></returns>
+        </member>
+        <member name="M:IKVM.NativeCode.sun.awt.shell.Win32ShellFolder2.getFolderType(System.String)">
+            <summary>
+            Get the type of a file or folder. On a file it depends on its extension.
+            </summary>
+            <param name="path">the path of the file or folder</param>
+            <returns>The type in readable form or null, if the path cannot be resolved</returns>
+        </member>
+        <member name="M:IKVM.NativeCode.sun.awt.shell.Win32ShellFolder2.getAttribute(System.String)">
+            <summary>
+            Retrieves information about an object in the file system, such as a file, folder, directory, or drive root.
+            </summary>
+            <param name="path">The path of the file system object</param>
+            <returns>The SHGFI flags with the attributes</returns>
+        </member>
+        <member name="M:IKVM.NativeCode.sun.awt.shell.Win32ShellFolder2.getLinkLocation(System.String)">
+            <summary>Returns the link target as a pIDL relative to the desktop without resolving the link</summary>
+            <param name="path">The path of the .lnk file</param>
+            <returns>the link target as a pIDL relative to the desktop</returns>
+        </member>
+        <member name="M:IKVM.NativeCode.sun.awt.shell.Win32ShellFolder2.getLinkLocation(System.String,System.Boolean)">
+            <summary>Returns the link target as a pIDL relative to the desktop</summary>
+            <param name="path">The path of the .lnk file</param>
+            <param name="resolve">If true, attempts to find the target of a Shell link, 
+            even if it has been moved or renamed. This may open a file chooser</param>
+            <returns>the link target as a pIDL relative to the desktop</returns>
+        </member>
+        <member name="M:IKVM.NativeCode.sun.awt.shell.Win32ShellFolder2.getShell32IconResourceAsBitmap(System.Int32,System.Boolean)">
+            <summary>
+            Retrieves an icon from the shell32.dell
+            </summary>
+            <param name="iconID">the index of the icon</param>
+            <returns>The icon or null, if there is no icon at the given index</returns>
+        </member>
+        <member name="M:IKVM.NativeCode.sun.awt.shell.Win32ShellFolder2.initDesktopPIDL">
+            <summary>
+            Returns the pIDL of the desktop itself
+            </summary>
+        </member>
+        <member name="M:IKVM.NativeCode.sun.awt.shell.Win32ShellFolder2.initDesktopFolder">
+            <summary>
+            Returns an IShellFolder for the desktop
+            </summary>
+        </member>
+        <member name="M:IKVM.NativeCode.sun.awt.shell.Win32ShellFolder2.initSpecialPIDL(System.Object,System.Int32)">
+            <summary>
+            Returns the desktop relative pIDL of a special folder
+            </summary>
+            <param name="desktopIShellFolder">The IShellFolder instance of the Desktop</param>
+            <param name="csidl">The CSIDL of the special folder</param>
+            <returns>the desktop relative pIDL of a special folder</returns>
+        </member>
+        <member name="M:IKVM.NativeCode.sun.awt.shell.Win32ShellFolder2.initSpecialFolder(System.Object,System.IntPtr)">
+            <summary>
+            Creates an IShellFolder for a special folder
+            </summary>
+            <param name="desktopIShellFolder">The IShellFolder instance of the Desktop</param>
+            <param name="pidl">The desktop relative pIDL of the special folder</param>
+            <returns>The IShellFolder for a special folder</returns>
+        </member>
+        <member name="M:IKVM.NativeCode.sun.awt.shell.Win32ShellFolder2.getNextPIDLEntry(System.IntPtr)">
+            <summary>
+            Goes down one entry in the given pIDL
+            </summary>
+            <param name="pIDL">the pIDL to operate on</param>
+            <returns>the next entry in the pIDL</returns>
+        </member>
+        <member name="M:IKVM.NativeCode.sun.awt.shell.Win32ShellFolder2.copyFirstPIDLEntry(System.IntPtr)">
+            <summary>
+            Copies the first entry in the given pIDL into a new relative pIDL (with terminator)
+            </summary>
+            <param name="pIDL">The pIDL to copy from</param>
+            <returns>the relative pIDL of the first entry</returns>
+        </member>
+        <member name="M:IKVM.NativeCode.sun.awt.shell.Win32ShellFolder2.combinePIDLs(System.IntPtr,System.IntPtr)">
+            <summary>
+            Concatinates two pIDLs
+            </summary>
+            <param name="ppIDL">a pIDL, if IntPtr.Zero, IntPtr.Zero will be returned</param>
+            <param name="pIDL">a pIDL, if IntPtr.Zero, IntPtr.Zero will be returned</param>
+            <returns>the concatination of ppIDL and pIDL</returns>
+        </member>
+        <member name="M:IKVM.NativeCode.sun.awt.shell.Win32ShellFolder2.getPIDLlength(System.IntPtr)">
+            <summary>
+            Calculates the size of a ITEMIDLIST without the two bytes of the terminator
+            </summary>
+            <param name="pIDL">a pointer to the IDL to get the length of</param>
+            <returns>the length in bytes</returns>
+        </member>
+        <member name="M:IKVM.NativeCode.sun.awt.shell.Win32ShellFolder2.releasePIDL(System.IntPtr)">
+            <summary>
+            Releases the allocted memory of a pIDL
+            </summary>
+            <param name="pIDL">The pIDL to be released</param>
+        </member>
+        <member name="M:IKVM.NativeCode.sun.awt.shell.Win32ShellFolder2.releaseIShellFolder(System.Object)">
+            <summary>
+            Releases an IShellFolder COM object
+            </summary>
+            <param name="pIShellFolder">The IShellFolder to be released, must not be null</param>
+        </member>
+        <member name="M:IKVM.NativeCode.sun.awt.shell.Win32ShellFolder2.getNextChild(System.Object)">
+            <summary>
+            Returns the next pIDL in an IEnumIDList
+            </summary>
+            <param name="pEnumObjects">The IEnumIDList to get the next element of</param>
+            <returns>a pIDL or IntPtr.Zero in case the end of the enum is reached</returns>
+        </member>
+        <member name="M:IKVM.NativeCode.sun.awt.shell.Win32ShellFolder2.releaseEnumObjects(System.Object)">
+            <summary>
+            Releases an IEnumIDList
+            </summary>
+            <param name="pEnumObjects">The IEnumIDList to be released</param>
+        </member>
+        <member name="M:IKVM.NativeCode.sun.awt.shell.Win32ShellFolder2.bindToObject(System.Object,System.IntPtr)">
+            <summary>
+            Binds an IShellFolder to the child of a given shell folder
+            </summary>
+            <param name="parentIShellFolder">the parent IShellFolder</param>
+            <param name="pIDL">the relative pIDL to the child</param>
+            <returns>The IShellFolder of the child or null, if there is no such child</returns>
+        </member>
+        <member name="M:IKVM.NativeCode.sun.awt.shell.Win32ShellFolder2.parseDisplayName0(System.Object,System.String)">
+            <summary>
+            Parses the displayname of a child of a given folder
+            </summary>
+            <param name="pIShellFolder">The IShellFolder to get the chilf of</param>
+            <param name="name">The display name of the child</param>
+            <returns>the relative pIDL of the child or IntPrt.Zero in case there is no such child</returns>
+        </member>
+        <member name="M:IKVM.NativeCode.sun.awt.shell.ShellLink.IShellLinkW.Resolve(System.IntPtr,System.UInt32)">
+            <summary>Attempts to find the target of a Shell link, even if it has been moved or renamed.</summary>
+        </member>
+        <member name="M:awt.ShellApi.DestroyIcon(System.IntPtr)">
+            <summary>
+            FreeMem for icon handles
+            </summary>
+            <param name="hIcon">The icon handle; must not be in use.</param>
+            <returns></returns>
+        </member>
+        <member name="M:awt.ShellApi.SHGetDesktopFolder(awt.ShellApi.IShellFolder@)">
+            <summary>
+            Returns the IShellFolder for the virtual desktop, which is the root any other folder.
+            See http://msdn.microsoft.com/en-us/library/bb762175%28VS.85%29.aspx
+            </summary>
+        </member>
+        <member name="M:awt.ShellApi.SHGetFileInfo(System.String,System.UInt32,awt.ShellApi.SHFILEINFO@,System.UInt32,awt.ShellApi.SHGFI)">
+            <summary>
+            Returns informations aboud any filesystem object which can be addressed by a normal path.
+            See http://msdn.microsoft.com/en-us/library/bb762179%28VS.85%29.aspx
+            </summary>
+        </member>
+        <member name="M:awt.ShellApi.SHGetSpecialFolderLocation(System.IntPtr,awt.ShellApi.CSIDL,System.IntPtr@)">
+            <summary>
+            Returns the pIDL for a special folder.
+            See http://msdn.microsoft.com/en-us/library/bb762203%28VS.85%29.aspx
+            </summary>
+        </member>
+        <member name="M:awt.ShellApi.SHGetPathFromIDList(System.IntPtr,System.Text.StringBuilder)">
+            <summary>
+            Returns the path for a desktop-relative pIDL
+            See http://msdn.microsoft.com/en-us/library/bb762194%28VS.85%29.aspx
+            </summary>
+        </member>
+        <member name="T:awt.ShellApi.SHGDN">
+            <summary>
+            Constants for IShellFolder.GetDisplayNameOf and IShellFolder.SetNameOf 
+            </summary>
+        </member>
+        <member name="T:awt.ShellApi.SHCONTF">
+            <summary>
+            Filter constants for IShellFolder.EnumObjects
+            </summary>
+        </member>
+        <member name="T:awt.ShellApi.SFGAOF">
+            <summary>
+            Attributes of an IShellFolder object
+            </summary>
+        </member>
+        <member name="T:awt.ShellApi.STRRET_TYPE">
+            <summary>
+            Specifies the desired format of a STRRET structure
+            </summary>
+        </member>
+        <member name="T:awt.ShellApi.SHGFI">
+            <summary>
+            Flags for SHGetFileInfo, parameter uFlags; specifies the file information to retrieve.
+            See http://www.pinvoke.net/default.aspx/Constants/ShellAPI%20.html
+            </summary>
+        </member>
+        <member name="T:awt.ShellApi.CSIDL">
+            <summary>
+            Special folder constants
+            See http://msdn.microsoft.com/en-us/library/bb762494%28VS.85%29.aspx
+            </summary>
+        </member>
+        <member name="T:awt.ShellApi.SHCOLSTATE">
+            <summary>
+            See http://msdn.microsoft.com/en-us/library/bb762538%28VS.85%29.aspx
+            </summary>
+        </member>
+        <member name="T:awt.ShellApi.GIL">
+            <summary>
+            Flags for IExtractIcon.GetIconLocation 
+            See http://msdn.microsoft.com/en-us/library/bb761852%28VS.85%29.aspx
+            </summary>
+        </member>
+        <member name="T:awt.ShellApi.SHFILEINFO">
+            <summary>
+            File informations
+            See http://msdn.microsoft.com/en-us/library/bb759792%28VS.85%29.aspx
+            </summary>
+        </member>
+        <member name="T:awt.ShellApi.STRRET">
+            <summary>
+            Return value of IShellFolder interface methods
+            </summary>
+        </member>
+        <member name="T:awt.ShellApi.IShellFolder">
+            <summary>
+            See http://msdn.microsoft.com/en-us/library/bb775075%28VS.85%29.aspx
+            </summary>
+        </member>
+        <member name="T:awt.ShellApi.IShellIcon">
+            <summary>
+            See http://msdn.microsoft.com/en-us/library/bb761277%28VS.85%29.aspx
+            </summary>
+        </member>
+        <member name="T:awt.ShellApi.IExtractIcon">
+            <summary>
+            see http://msdn.microsoft.com/en-us/library/bb761854%28VS.85%29.aspx
+            </summary>
+        </member>
+        <member name="T:awt.ShellApi.IShellFolder2">
+            <summary>
+            See http://msdn.microsoft.com/en-us/library/bb775055%28VS.85%29.aspx
+            </summary>
+        </member>
+        <member name="T:awt.ShellApi.IEnumIDList">
+            <summary>
+            See http://msdn.microsoft.com/en-us/library/bb761982%28VS.85%29.aspx
+            </summary>
+        </member>
+    </members>
+</doc>

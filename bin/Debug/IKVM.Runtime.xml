@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IKVM.Runtime</name>
+    </assembly>
+    <members>
+        <member name="P:IKVM.Internal.TypeWrapper.TypeAsArrayType">
+            <summary>Use this if the type is used as an array or array element</summary> 
+        </member>
+        <member name="M:NativeInvokerBytecodeGenerator.emitImplicitConversion(java.lang.invoke.LambdaForm.BasicType,java.lang.Class,System.Object)">
+             Emit an implicit conversion for an argument which must be of the given pclass.
+             This is usually a no-op, except when pclass is a subword type or a reference other than Object or an interface.
+            
+             @param ptype type of value present on stack
+             @param pclass type of value required on stack
+             @param arg compile-time representation of value on stack (Node, constant) or null if none
+        </member>
+        <member name="M:NativeInvokerBytecodeGenerator.assertStaticType(java.lang.Class,java.lang.invoke.LambdaForm.Name)">
+            Update localClasses type map.  Return true if the information is already present. 
+        </member>
+        <member name="M:NativeInvokerBytecodeGenerator.generateCustomizedCode(java.lang.invoke.LambdaForm,java.lang.invoke.MethodType)">
+            Generate customized bytecode for a given LambdaForm.
+        </member>
+        <member name="M:NativeInvokerBytecodeGenerator.generateCustomizedCodeBytes">
+            Generate an invoker method for the passed {@link LambdaForm}.
+        </member>
+        <member name="M:NativeInvokerBytecodeGenerator.emitInvoke(java.lang.invoke.LambdaForm.Name)">
+            Emit an invoke for the given name.
+        </member>
+        <member name="M:NativeInvokerBytecodeGenerator.emitStaticInvoke(java.lang.invoke.MemberName,java.lang.invoke.LambdaForm.Name)">
+            Emit an invoke for the given name, using the MemberName directly.
+        </member>
+        <member name="M:NativeInvokerBytecodeGenerator.emitSelectAlternative(java.lang.invoke.LambdaForm.Name,java.lang.invoke.LambdaForm.Name)">
+             Emit bytecode for the selectAlternative idiom.
+            
+             The pattern looks like (Cf. MethodHandleImpl.makeGuardWithTest):
+             <blockquote><pre>{@code
+               Lambda(a0:L,a1:I)=>{
+                 t2:I=foo.test(a1:I);
+                 t3:L=MethodHandleImpl.selectAlternative(t2:I,(MethodHandle(int)int),(MethodHandle(int)int));
+                 t4:I=MethodHandle.invokeBasic(t3:L,a1:I);t4:I}
+             }</pre></blockquote>
+        </member>
+        <member name="M:NativeInvokerBytecodeGenerator.emitGuardWithCatch(System.Int32)">
+             Emit bytecode for the guardWithCatch idiom.
+            
+             The pattern looks like (Cf. MethodHandleImpl.makeGuardWithCatch):
+             <blockquote><pre>{@code
+              guardWithCatch=Lambda(a0:L,a1:L,a2:L,a3:L,a4:L,a5:L,a6:L,a7:L)=>{
+                t8:L=MethodHandle.invokeBasic(a4:L,a6:L,a7:L);
+                t9:L=MethodHandleImpl.guardWithCatch(a1:L,a2:L,a3:L,t8:L);
+               t10:I=MethodHandle.invokeBasic(a5:L,t9:L);t10:I}
+             }</pre></blockquote>
+            
+             It is compiled into bytecode equivalent of the following code:
+             <blockquote><pre>{@code
+              try {
+                  return a1.invokeBasic(a6, a7);
+              } catch (Throwable e) {
+                  if (!a2.isInstance(e)) throw e;
+                  return a3.invokeBasic(ex, a6, a7);
+              }}</pre></blockquote>
+        </member>
+        <member name="M:NativeInvokerBytecodeGenerator.emitStoreResult(java.lang.invoke.LambdaForm.Name)">
+            Store the name to its local, if necessary.
+        </member>
+        <member name="M:NativeInvokerBytecodeGenerator.emitReturn(java.lang.invoke.LambdaForm.Name)">
+            Emits a return statement from a LF invoker. If required, the result type is cast to the correct return type.
+        </member>
+        <member name="M:NativeInvokerBytecodeGenerator.emitPrimCast(sun.invoke.util.Wrapper,sun.invoke.util.Wrapper)">
+            Emit a type conversion bytecode casting from "from" to "to".
+        </member>
+    </members>
+</doc>

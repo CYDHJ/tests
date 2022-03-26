@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32106.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleMQ", "ConsoleMQ.csproj", "{27496813-1CAF-4CA0-BEF0-669D2AD66005}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{27496813-1CAF-4CA0-BEF0-669D2AD66005}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27496813-1CAF-4CA0-BEF0-669D2AD66005}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27496813-1CAF-4CA0-BEF0-669D2AD66005}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27496813-1CAF-4CA0-BEF0-669D2AD66005}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B70D47B6-C8AF-46A2-BAB0-E730D40B4EDA}
+	EndGlobalSection
+EndGlobal
