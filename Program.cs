@@ -17,7 +17,7 @@ namespace ConsoleMQ
             try
             {
                
-                producer = new DefaultMQProducer("wulangtes");
+                producer = new DefaultMQProducer("wuTest");
 
                  
                 producer.setNamesrvAddr("172.17.22.11:9876");

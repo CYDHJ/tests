@@ -50,3 +50,4 @@ C:\Users\04100208\source\repos\ConsoleMQ\obj\Debug\ConsoleMQ.csproj.CopyComplete
 C:\Users\04100208\source\repos\ConsoleMQ\obj\Debug\ConsoleMQ.exe
 C:\Users\04100208\source\repos\ConsoleMQ\obj\Debug\ConsoleMQ.pdb
 C:\Users\04100208\source\repos\ConsoleMQ\bin\Debug\MQ-NEW.dll
+C:\Users\04100208\source\repos\ConsoleMQ\obj\Debug\ConsoleMQ.csproj.AssemblyReference.cache
