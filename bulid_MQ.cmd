@@ -1,1 +1,1 @@
-ikvmc -target:library -recurse:*.jar -version:2.0 -out:MQ-NEW.dll
+ikvmc -target:library -recurse:.\JAR\*.jar -version:2.0 -out:.\JAR\MQ-NEW.dll
